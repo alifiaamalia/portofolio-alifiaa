@@ -5,10 +5,15 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import CursorGlow from "./components/CursorGlow";
 
 export default function App() {
   return (
     <>
+      {/* cursor effect global */}
+      <CursorGlow />
+
+      {/* all sections */}
       <Navbar />
       <Hero />
       <About />

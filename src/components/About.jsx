@@ -10,21 +10,24 @@ export default function About() {
 
         {/* LEFT TEXT */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
 
-          <p className="text-orange-500 font-semibold mb-3">
+          {/* badge */}
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur px-4 py-2 rounded-full border border-gray-200 text-sm text-gray-600 mb-6 shadow-sm">
             About Me
-          </p>
+          </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+          {/* title */}
+          <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
             A student building <br />
             the long way around.
           </h2>
 
+          {/* text */}
           <p className="mt-6 text-gray-600 leading-relaxed">
             I'm Alifia — an Informatics student who fell in love with the quiet
             patterns hiding inside spreadsheets, logs, and APIs. I learn by
@@ -42,52 +45,52 @@ export default function About() {
 
         {/* RIGHT CARDS */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="grid gap-5"
         >
 
-          {/* CARD 1 */}
-          <div className="p-6 rounded-2xl bg-gray-50 shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-900">
-              Informatics Student
-            </h3>
-            <p className="text-gray-600 mt-1 text-sm">
-              Currently studying, currently obsessed with everything data.
-            </p>
-          </div>
+          {[
+            {
+              title: "Informatics Student",
+              desc: "Currently studying, currently obsessed with everything data."
+            },
+            {
+              title: "5+ Projects Built",
+              desc: "From classroom to GitHub — small, real, finished things."
+            },
+            {
+              title: "AI & Machine Learning",
+              desc: "Notebooks, models, and a healthy respect for clean data."
+            },
+            {
+              title: "Cloud Curious",
+              desc: "Learning GCP fundamentals — storage, compute, deploy."
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="
+                p-6 rounded-2xl
+                bg-gray-50
+                border border-gray-200
+                shadow-sm hover:shadow-md
+                transition
+              "
+            >
+              <h3 className="font-semibold text-black">
+                {item.title}
+              </h3>
 
-          {/* CARD 2 */}
-          <div className="p-6 rounded-2xl bg-gray-50 shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-900">
-              5+ Projects Built
-            </h3>
-            <p className="text-gray-600 mt-1 text-sm">
-              From classroom to GitHub — small, real, finished things.
-            </p>
-          </div>
-
-          {/* CARD 3 */}
-          <div className="p-6 rounded-2xl bg-gray-50 shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-900">
-              AI & Machine Learning
-            </h3>
-            <p className="text-gray-600 mt-1 text-sm">
-              Notebooks, models, and a healthy respect for clean data.
-            </p>
-          </div>
-
-          {/* CARD 4 */}
-          <div className="p-6 rounded-2xl bg-gray-50 shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-900">
-              Cloud Curious
-            </h3>
-            <p className="text-gray-600 mt-1 text-sm">
-              Learning GCP fundamentals — storage, compute, deploy.
-            </p>
-          </div>
+              <p className="text-gray-600 mt-1 text-sm">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
 
         </motion.div>
 

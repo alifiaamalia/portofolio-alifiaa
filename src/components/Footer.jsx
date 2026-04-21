@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 py-10">
+    <footer className="bg-[#E8D8C4]/70 backdrop-blur-xl border-t border-white/30 py-10">
 
       <div className="max-w-6xl mx-auto px-6">
 
@@ -16,51 +16,47 @@ export default function Footer() {
 
           {/* LEFT */}
           <div className="text-center md:text-left">
-            <h2 className="text-lg font-bold text-gray-900">
+            <h2 className="text-lg font-bold text-[#561C24]">
               Alifia.
             </h2>
-            <p className="text-gray-500 text-sm mt-1">
+            <p className="text-[#6D2932]/70 text-sm mt-1">
               Building small things, learning every day.
             </p>
           </div>
 
           {/* MIDDLE LINKS */}
-          <div className="flex gap-6 text-sm text-gray-500">
-            <a href="#about" className="hover:text-orange-500 transition">
+          <div className="flex gap-6 text-sm text-[#6D2932]/70">
+
+            <a href="#about" className="hover:text-[#561C24] transition">
               About
             </a>
-            <a href="#skills" className="hover:text-orange-500 transition">
+
+            <a href="#skills" className="hover:text-[#561C24] transition">
               Skills
             </a>
-            <a href="#projects" className="hover:text-orange-500 transition">
+
+            <a href="#projects" className="hover:text-[#561C24] transition">
               Projects
             </a>
-            <a href="#contact" className="hover:text-orange-500 transition">
+
+            <a href="#contact" className="hover:text-[#561C24] transition">
               Contact
             </a>
+
           </div>
 
           {/* RIGHT SOCIAL */}
-          <div className="flex gap-4 text-gray-500 text-sm">
+          <div className="flex gap-4 text-sm text-[#6D2932]/70">
 
-            <a
-              href="#"
-              className="hover:text-orange-500 transition"
-            >
+            <a href="#" className="hover:text-[#561C24] transition">
               GitHub
             </a>
 
-            <a
-              href="#"
-              className="hover:text-orange-500 transition"
-            >
+            <a href="#" className="hover:text-[#561C24] transition">
               LinkedIn
             </a>
 
-            <a
-              href="#"
-              className="hover:text-orange-500 transition"
-            >
+            <a href="#" className="hover:text-[#561C24] transition">
               Email
             </a>
 
@@ -69,7 +65,7 @@ export default function Footer() {
         </motion.div>
 
         {/* COPYRIGHT */}
-        <div className="mt-10 text-center text-gray-400 text-xs">
+        <div className="mt-10 text-center text-[#6D2932]/50 text-xs">
           © {new Date().getFullYear()} Alifia. All rights reserved.
         </div>
 

@@ -6,18 +6,30 @@ export default function Navbar() {
   );
 
   const [scrolled, setScrolled] = useState(false);
+  const [hide, setHide] = useState(false);
+  const [active, setActive] = useState("about");
 
-  // detect scroll
+  let lastScroll = 0;
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const current = window.scrollY;
+
+      setScrolled(current > 10);
+
+      if (current > lastScroll && current > 120) {
+        setHide(true);
+      } else {
+        setHide(false);
+      }
+
+      lastScroll = current;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // dark mode
   useEffect(() => {
     if (dark) {
       document.documentElement.classList.add("dark");
@@ -28,44 +40,70 @@ export default function Navbar() {
     }
   }, [dark]);
 
+  const linkClass = (id) =>
+    `relative text-sm font-medium transition-all duration-300 ${
+      active === id
+        ? "text-[#561C24]"
+        : "text-[#561C24]/50 hover:text-[#561C24]"
+    }`;
+
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-md border-b border-gray-200/50 dark:border-gray-700/50"
-          : "bg-white/40 dark:bg-gray-900/40 backdrop-blur"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
+      className={`
+        fixed w-full z-50 transition-all duration-500
+        ${hide ? "-top-24" : "top-3"}
 
-        {/* logo */}
-        <h1 className="font-bold text-orange-500 text-xl">
-         Portofolio Alifia.
+        /* 🍎 APPLE GLASS STYLE */
+        ${
+          scrolled
+            ? "bg-[#E8D8C4]/40 backdrop-blur-2xl border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+            : "bg-transparent"
+        }
+      `}
+    >
+      {/* inner floating container */}
+      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between rounded-full">
+
+        {/* LOGO */}
+        <h1 className="font-semibold text-[#561C24] text-lg tracking-tight">
+          Portfolio Alifia
         </h1>
 
-        {/* menu */}
-        <div className="hidden md:flex gap-8 ml-auto mr-10 text-gray-500">
-          <a href="#about" className="hover:text-orange-500 transition">
-            About
-          </a>
-          <a href="#skills" className="hover:text-orange-500 transition">
-            Skills
-          </a>
-          <a href="#projects" className="hover:text-orange-500 transition">
-            Projects
-          </a>
-          <a href="#contact" className="hover:text-orange-500 transition">
-            Contact
-          </a>
+        {/* MENU */}
+        <div className="hidden md:flex items-center gap-10 relative">
+
+          {["about", "skills", "projects", "contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item}`}
+              onClick={() => setActive(item)}
+              className={linkClass(item)}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          ))}
+
+          {/* 🍎 sliding active indicator */}
+          <span
+            className="absolute bottom-[-6px] h-[2px] bg-[#6D2932] transition-all duration-300 rounded-full"
+            style={{
+              width: "60px",
+              transform: `translateX(${
+                ["about", "skills", "projects", "contact"].indexOf(active) * 80
+              }px)`,
+              opacity: 0.7,
+            }}
+          />
         </div>
 
-        {/* toggle dark */}
+        {/* TOGGLE */}
         <button
           onClick={() => setDark(!dark)}
-          className="text-xl"
+          className="text-xl text-[#561C24] hover:scale-110 transition"
         >
           {dark ? "🌙" : "☀️"}
         </button>
+
       </div>
     </nav>
   );
