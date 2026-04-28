@@ -3,8 +3,8 @@ import { FiExternalLink } from "react-icons/fi";
 
 const experiences = [
   {
-    title: "Student Employee — LPPM UAD",
-    role: "Scientific Publication & Data Assistant",
+    title: "Scientific Publication & Data Assistant",
+    role: "BPI - LPPM UAD ",
     period: "Feb 2025 — Mar 2026",
     link: "https://bpi.uad.ac.id/publication/",
     desc: [
