@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "Python", status: "Daily", level: 88 },
-  { name: "SQL", status: "Comfortable", level: 80 },
-  { name: "Machine Learning", status: "Learning", level: 70 },
-  { name: "React", status: "Confident", level: 75 },
-  { name: "Tailwind CSS", status: "Confident", level: 82 },
-  { name: "Cloud (GCP basic)", status: "Exploring", level: 55 },
+  { name: "Python (Data & ML)", status: "Core Skill", level: 92 },
+  { name: "SQL (Data Querying)", status: "Data Engineering", level: 85 },
+  { name: "Machine Learning (TensorFlow, Sklearn)", status: "ECG Project", level: 80 },
+  { name: "ECG Signal Processing", status: "Thesis Focus", level: 78 },
+  { name: "Data Engineering Pipeline", status: "ETL & Workflow", level: 82 },
+  { name: "Google Cloud Platform (GCP)", status: "Bangkit Academy", level: 75 },
+  { name: "Backend API (Node/Express)", status: "Project Based", level: 70 },
+  { name: "React + Frontend UI", status: "Portfolio Dev", level: 75 },
+  { name: "Tailwind CSS", status: "UI Styling", level: 85 },
+  { name: "Git & Collaboration", status: "Team Project", level: 80 },
 ];
 
 export default function Skills() {

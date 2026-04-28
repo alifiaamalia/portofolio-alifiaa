@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 export default function Footer() {
   return (
@@ -20,7 +21,7 @@ export default function Footer() {
               Alifia.
             </h2>
             <p className="text-[#6D2932]/70 text-sm mt-1">
-              Building small things, learning every day.
+              Data-driven systems • AI • Cloud
             </p>
           </div>
 
@@ -46,22 +47,37 @@ export default function Footer() {
           </div>
 
           {/* RIGHT SOCIAL */}
-          <div className="flex gap-4 text-sm text-[#6D2932]/70">
+          <div className="flex gap-4">
 
-            <a href="#" className="hover:text-[#561C24] transition">
-              GitHub
-            </a>
+  {/* GITHUB */}
+  <a
+    href="https://github.com/alifiaamalia"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 flex items-center justify-center rounded-full border border-[#561C24]/20 text-[#561C24] hover:bg-[#561C24] hover:text-white transition"
+  >
+    <FiGithub />
+  </a>
 
-            <a href="#" className="hover:text-[#561C24] transition">
-              LinkedIn
-            </a>
+  {/* LINKEDIN */}
+  <a
+    href="https://www.linkedin.com/in/alifia-amalia-azzara-4145b3339"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 flex items-center justify-center rounded-full border border-[#561C24]/20 text-[#561C24] hover:bg-[#561C24] hover:text-white transition"
+  >
+    <FiLinkedin />
+  </a>
 
-            <a href="#" className="hover:text-[#561C24] transition">
-              Email
-            </a>
+  {/* EMAIL */}
+  <a
+    href="mailto:alifiaazzara1193@email.com"
+    className="w-10 h-10 flex items-center justify-center rounded-full border border-[#561C24]/20 text-[#561C24] hover:bg-[#561C24] hover:text-white transition"
+  >
+    <FiMail />
+  </a>
 
-          </div>
-
+</div>
         </motion.div>
 
         {/* COPYRIGHT */}

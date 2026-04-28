@@ -23,22 +23,21 @@ export default function About() {
 
           {/* title */}
           <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
-            A student building <br />
-            the long way around.
+            System Analyst & <br />
+            Data Enthusiast
           </h2>
 
           {/* text */}
           <p className="mt-6 text-gray-600 leading-relaxed">
-            I'm Alifia — an Informatics student who fell in love with the quiet
-            patterns hiding inside spreadsheets, logs, and APIs. I learn by
-            building small, finished projects in AI, cloud, and data, then
-            pulling them apart to figure out what actually made them work.
+            I'm Alifia — a fresh graduate in Informatics with a strong interest in system analysis and data engineering. I focus on translating business requirements into structured system workflows and building data-driven solutions using Python and SQL.
           </p>
 
           <p className="mt-4 text-gray-600 leading-relaxed">
-            My goal isn't to look like a senior engineer overnight. It's to keep
-            showing up, stay curious, and ship things I'm proud of — one notebook,
-            one deploy, one bug at a time.
+            I have hands-on experience working on real-world projects, including developing web-based systems and building end-to-end ETL pipelines for data processing. I enjoy designing efficient systems, structuring data, and collaborating in team environments to deliver scalable solutions.
+          </p>
+
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            Currently, I am focused on growing as a professional in system analysis and data engineering, continuously improving my skills in system design, cloud computing, and modern data technologies.
           </p>
 
         </motion.div>
@@ -54,20 +53,20 @@ export default function About() {
 
           {[
             {
-              title: "Informatics Student",
-              desc: "Currently studying, currently obsessed with everything data."
+              title: "System Analysis",
+              desc: "Requirement gathering, UML, DFD, and structured system workflow design."
             },
             {
-              title: "5+ Projects Built",
-              desc: "From classroom to GitHub — small, real, finished things."
+              title: "Data Engineering",
+              desc: "Building ETL pipelines, data processing, and SQL-based data management."
             },
             {
-              title: "AI & Machine Learning",
-              desc: "Notebooks, models, and a healthy respect for clean data."
+              title: "Real-World Projects",
+              desc: "Experience in web systems and data-driven applications in team environments."
             },
             {
-              title: "Cloud Curious",
-              desc: "Learning GCP fundamentals — storage, compute, deploy."
+              title: "Cloud & Backend",
+              desc: "Hands-on experience with GCP, backend systems, and scalable solutions."
             },
           ].map((item, i) => (
             <motion.div

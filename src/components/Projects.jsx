@@ -3,20 +3,40 @@ import { useState } from "react";
 
 const projectsData = [
   {
-    title: "Cafe Sales Dashboard",
+    title: "BOTANI Winongo Asri",
     description:
-      "Dashboard interaktif untuk analisis penjualan cafe: revenue, top product, jam ramai.",
-    tools: ["Python", "Pandas", "Streamlit"],
-    image: "/project1.jpg",
-    category: "Data",
+      "Website resmi kelompok tani di Yogyakarta dengan fitur produk, eduwisata, galeri, dan blog pertanian modern.",
+    tools: ["Web Development", "UI/UX", "Content Management"],
+    image: "/botani.jpg",
+    category: "Web",
+    link: "https://botani.web.id/",
   },
   {
-    title: "Student Mood Classifier",
+    title: "Himpunan Psikologi Yogyakarta",
     description:
-      "Model ML untuk prediksi tingkat stres mahasiswa berdasarkan aktivitas harian.",
-    tools: ["Scikit-learn", "Python", "React"],
-    image: "/project2.jpg",
+      "Website organisasi profesional untuk komunikasi dan edukasi anggota.",
+    tools: ["Web Development", "Information System"],
+    image: "himpsi.jpg",
+    category: "Web",
+    link: "https://himpsidiy.or.id/",
+  },
+  {
+    title: "Kongres HIMPSI XV",
+    description:
+      "Website resmi event nasional psikologi di Yogyakarta dengan informasi agenda lengkap.",
+    tools: ["Web Development", "Event Platform"],
+    image: "kongres.jpg",
+    category: "Web",
+    link: "https://kongresxvhimpsi.web.id/",
+  },
+  {
+    title: "ECG Heartbeat Classification",
+    description:
+      "Model machine learning untuk klasifikasi detak jantung berbasis ECG untuk deteksi dini aritmia.",
+    tools: ["Python", "Machine Learning", "LSTM", "Signal Processing"],
+    image: "ecg.png",
     category: "ML",
+    link: "https://github.com/alifiaamalia/ecg-data-pipeline",
   },
 ];
 
@@ -44,9 +64,8 @@ export default function Projects() {
           <h2 className="text-5xl font-bold text-[#561C24]">
             Selected Projects
           </h2>
-
           <p className="text-gray-600 mt-4">
-            Small things, actually finished — Apple-style curated gallery.
+            Small things, actually finished — curated portfolio.
           </p>
         </motion.div>
 
@@ -69,7 +88,6 @@ export default function Projects() {
 
         {/* GRID */}
         <div className="grid md:grid-cols-2 gap-10">
-
           {filtered.map((p, i) => (
             <motion.div
               key={i}
@@ -79,25 +97,19 @@ export default function Projects() {
               className="relative group cursor-pointer"
               onClick={() => setSelected(p)}
             >
-
-              {/* CARD */}
               <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition bg-white">
 
                 {/* IMAGE */}
                 <div className="relative h-56 overflow-hidden">
-
                   <motion.img
                     src={p.image}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                   />
-
-                  {/* glass overlay */}
                   <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px]" />
                 </div>
 
                 {/* CONTENT */}
                 <div className="p-6">
-
                   <h3 className="text-xl font-semibold text-black group-hover:text-[#561C24]">
                     {p.title}
                   </h3>
@@ -106,7 +118,6 @@ export default function Projects() {
                     {p.description}
                   </p>
 
-                  {/* TAGS */}
                   <div className="flex flex-wrap gap-2 mt-4">
                     {p.tools.map((t, i) => (
                       <span
@@ -117,51 +128,75 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-
                 </div>
-              </div>
 
+              </div>
             </motion.div>
           ))}
-
         </div>
       </div>
 
-      {/* MODAL */}
+      {/* 🔥 MODAL APPLE STYLE */}
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 bg-black/40 backdrop-blur flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/30 backdrop-blur-md flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             onClick={() => setSelected(null)}
           >
 
             <motion.div
-              initial={{ scale: 0.8, y: 50 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.8, y: 50 }}
-              className="bg-white rounded-2xl max-w-lg w-full p-6"
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 40 }}
+              transition={{ type: "spring", stiffness: 120, damping: 15 }}
+              className="bg-white/80 backdrop-blur-xl rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-white/40 relative"
+              onClick={(e) => e.stopPropagation()}
             >
-              <img
+
+              {/* CLOSE BUTTON */}
+              <button
+                onClick={() => setSelected(null)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-black text-lg"
+              >
+                ✕
+              </button>
+
+              {/* IMAGE */}
+              <motion.img
                 src={selected.image}
-                className="rounded-xl mb-4"
+                className="rounded-2xl mb-4"
+                initial={{ scale: 1.05 }}
+                animate={{ scale: 1 }}
               />
 
+              {/* TITLE */}
               <h2 className="text-2xl font-bold text-[#561C24]">
                 {selected.title}
               </h2>
 
-              <p className="text-gray-600 mt-2">
+              {/* DESC */}
+              <p className="text-gray-600 mt-2 leading-relaxed">
                 {selected.description}
               </p>
 
-              <button
-                className="mt-6 bg-[#561C24] text-white px-5 py-2 rounded-full"
-              >
-                Visit Project →
-              </button>
+              {/* BUTTON */}
+              <div className="mt-6">
+                {selected.link && (
+                  <a
+                    href={selected.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-[#561C24] text-white px-6 py-3 rounded-full hover:opacity-90 transition font-medium shadow-md"
+                  >
+                    View Project →
+                  </a>
+                )}
+              </div>
+
             </motion.div>
 
           </motion.div>
