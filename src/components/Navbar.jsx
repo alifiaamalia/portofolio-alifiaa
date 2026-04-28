@@ -1,119 +1,55 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
-  const [dark, setDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-
-  const [scrolled, setScrolled] = useState(false);
-  const [hide, setHide] = useState(false);
-  const [active, setActive] = useState("about");
-
-  const menuRef = useRef(null);
-  const itemRefs = useRef([]);
-
-  const [indicator, setIndicator] = useState({
-    left: 0,
-    width: 0,
-  });
+  const [open, setOpen] = useState(false);
 
   const menu = ["about", "skills", "experience", "projects", "contact"];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const current = window.scrollY;
-
-      setScrolled(current > 10);
-      setHide(current > 120);
-
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const index = menu.indexOf(active);
-    const el = itemRefs.current[index];
-
-    if (el && menuRef.current) {
-      const { offsetLeft, offsetWidth } = el;
-      setIndicator({
-        left: offsetLeft,
-        width: offsetWidth,
-      });
-    }
-  }, [active]);
-
-  useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]);
-
-  const linkClass = (id) =>
-    `relative text-sm font-medium transition-all duration-300 ${
-      active === id
-        ? "text-[#561C24]"
-        : "text-[#561C24]/50 hover:text-[#561C24]"
-    }`;
-
   return (
-    <nav
-      className={`
-        fixed w-full z-50 transition-all duration-500
-        ${hide ? "-top-24" : "top-3"}
-        ${
-          scrolled
-            ? "bg-[#E8D8C4]/40 backdrop-blur-2xl border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
-            : "bg-transparent"
-        }
-      `}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between rounded-full">
+    <nav className="fixed w-full z-50 bg-[#E8D8C4]/80 backdrop-blur px-6 py-4">
 
-        {/* LOGO */}
-        <h1 className="font-semibold text-[#561C24] text-lg tracking-tight">
-          Portfolio Alifia
-        </h1>
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
 
-        {/* MENU */}
-        <div
-          ref={menuRef}
-          className="hidden md:flex items-center gap-10 relative"
+        <h1 className="font-bold text-[#561C24]">Alifia</h1>
+
+        {/* DESKTOP */}
+        <div className="hidden md:flex gap-8">
+          {menu.map((item) => (
+            <a key={item} href={`#${item}`} className="text-[#561C24]">
+              {item}
+            </a>
+          ))}
+        </div>
+
+        {/* HAMBURGER */}
+        <button
+          className="md:hidden text-2xl text-[#561C24]"
+          onClick={() => setOpen(!open)}
         >
-          {menu.map((item, i) => (
+          {open ? <FiX /> : <FiMenu />}
+        </button>
+
+      </div>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="md:hidden mt-4 flex flex-col gap-4 bg-white p-4 rounded-xl shadow">
+
+          {menu.map((item) => (
             <a
               key={item}
               href={`#${item}`}
-              ref={(el) => (itemRefs.current[i] = el)}
-              onClick={() => setActive(item)}
-              className={linkClass(item)}
+              onClick={() => setOpen(false)}
+              className="text-[#561C24]"
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item}
             </a>
           ))}
 
-          {/* 🔥 INDICATOR FIX */}
-          <span
-            className="absolute bottom-[-6px] h-[2px] bg-[#6D2932] transition-all duration-300 rounded-full"
-            style={{
-              left: indicator.left,
-              width: indicator.width,
-            }}
-          />
         </div>
+      )}
 
-        {/* DARK MODE */}
-        <button
-          onClick={() => setDark(!dark)}
-          className="text-xl text-[#561C24] hover:scale-110 transition"
-        />
-      </div>
     </nav>
   );
 }
