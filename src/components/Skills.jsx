@@ -1,109 +1,129 @@
 import { motion } from "framer-motion";
+import {
+  SiPython,
+  SiMysql,
+  SiTensorflow,
+  SiGooglecloud,
+  SiReact,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiGit,
+  SiJira,
+  SiConfluence,
+  SiTrello,
+  SiFigma,
+} from "react-icons/si";
 
-const skills = [
-  { name: "Python (Data & ML)", status: "Core Skill", level: 92 },
-  { name: "SQL (Data Querying)", status: "Data Engineering", level: 85 },
-  { name: "Machine Learning (TensorFlow, Sklearn)", status: "ECG Project", level: 80 },
-  { name: "ECG Signal Processing", status: "Thesis Focus", level: 78 },
-  { name: "Data Engineering Pipeline", status: "ETL & Workflow", level: 82 },
-  { name: "Google Cloud Platform (GCP)", status: "Bangkit Academy", level: 75 },
-  { name: "Backend API (Node/Express)", status: "Project Based", level: 70 },
-  { name: "React + Frontend UI", status: "Portfolio Dev", level: 75 },
-  { name: "Tailwind CSS", status: "UI Styling", level: 85 },
-  { name: "Git & Collaboration", status: "Team Project", level: 80 },
-];
+import {
+  FiLayers,
+  FiGrid,
+  FiPenTool,
+  FiFileText,
+} from "react-icons/fi";
 
 export default function Skills() {
+  const systemSkills = [
+    { name: "Lucidchart / Draw.io", icon: <FiGrid /> },
+    { name: "Microsoft Visio", icon: <FiLayers /> },
+    { name: "UML & DFD Modeling", icon: <FiFileText /> },
+    { name: "Wireframing (Balsamiq)", icon: <FiPenTool /> },
+    { name: "Figma", icon: <SiFigma /> },
+    { name: "Jira", icon: <SiJira /> },
+    { name: "Trello", icon: <SiTrello /> },
+    { name: "Confluence", icon: <SiConfluence /> },
+  ];
+
+  const dataSkills = [
+    { name: "Python", icon: <SiPython /> },
+    { name: "SQL", icon: <SiMysql /> },
+    { name: "Machine Learning", icon: <SiTensorflow /> },
+    { name: "GCP", icon: <SiGooglecloud /> },
+    { name: "Backend API", icon: <SiNodedotjs /> },
+    { name: "React", icon: <SiReact /> },
+    { name: "Tailwind", icon: <SiTailwindcss /> },
+    { name: "Git", icon: <SiGit /> },
+  ];
+
   return (
     <section
       id="skills"
-      className="min-h-screen flex items-center bg-[#E8D8C4] py-24 relative overflow-hidden"
+      className="min-h-screen bg-[#E8D8C4] py-24"
     >
+      <div className="max-w-6xl mx-auto px-6">
 
-      {/* HERO STYLE BACKGROUND BLOBS */}
-      <motion.div
-        animate={{ y: [0, 30, 0] }}
-        transition={{ duration: 8, repeat: Infinity }}
-        className="absolute top-[-120px] left-[-120px] w-[420px] h-[420px] bg-[#C7B7A3] rounded-full blur-3xl opacity-40"
-      />
-
-      <motion.div
-        animate={{ y: [0, -30, 0] }}
-        transition={{ duration: 10, repeat: Infinity }}
-        className="absolute bottom-[-120px] right-[-120px] w-[420px] h-[420px] bg-white/30 rounded-full blur-3xl opacity-30"
-      />
-
-      <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
-
-        {/* LEFT TEXT */}
+        {/* TITLE */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-
           <h2 className="text-4xl md:text-5xl font-bold text-[#561C24]">
             Skills
           </h2>
-
-          <p className="text-[#6D2932]/80 mt-4 max-w-md">
-            What I work with — and how well, honestly.
+          <p className="text-[#6D2932]/80 mt-3">
+            System analysis tools and data technologies I use in real-world projects
           </p>
-
         </motion.div>
 
-        {/* RIGHT SKILLS CARD (GLASS LIKE HERO CARD) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="
-            p-6 rounded-[30px]
-            bg-white/40 backdrop-blur-xl
-            border border-white/40
-            shadow-2xl
-          "
-        >
+        {/* SYSTEM ANALYST */}
+        <div className="mb-16">
+          <h3 className="text-xl font-semibold text-[#561C24] mb-6">
+            System Analysis
+          </h3>
 
-          {skills.map((skill, index) => (
-            <div key={index} className="mb-6 last:mb-0">
-
-              {/* TOP ROW */}
-              <div className="flex justify-between items-center mb-2">
-
-                <h3 className="text-[#561C24] font-semibold">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {systemSkills.map((skill, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -5 }}
+                className="
+                  p-5 rounded-xl text-center
+                  bg-white/60 backdrop-blur
+                  border border-white/40
+                  shadow-sm hover:shadow-md
+                  transition
+                "
+              >
+                <div className="text-3xl text-[#561C24] mb-2 flex justify-center">
+                  {skill.icon}
+                </div>
+                <p className="text-sm text-[#561C24]">
                   {skill.name}
-                </h3>
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-                <span className="text-sm text-[#6D2932]/70">
-                  {skill.status}
-                </span>
+        {/* DATA & DEVELOPMENT */}
+        <div>
+          <h3 className="text-xl font-semibold text-[#561C24] mb-6">
+            Data & Development
+          </h3>
 
-              </div>
-
-              {/* PROGRESS BAR (MATCH HERO ACCENT) */}
-              <div className="w-full h-2 bg-white/30 rounded-full overflow-hidden">
-
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1.2 }}
-                  className="h-full bg-[#C7B7A3] rounded-full"
-                />
-
-              </div>
-
-              {/* PERCENT */}
-              <p className="text-right text-xs text-[#6D2932]/60 mt-1">
-                {skill.level}%
-              </p>
-
-            </div>
-          ))}
-
-        </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {dataSkills.map((skill, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -5 }}
+                className="
+                  p-5 rounded-xl text-center
+                  bg-white/60 backdrop-blur
+                  border border-white/40
+                  shadow-sm hover:shadow-md
+                  transition
+                "
+              >
+                <div className="text-3xl text-[#561C24] mb-2 flex justify-center">
+                  {skill.icon}
+                </div>
+                <p className="text-sm text-[#561C24]">
+                  {skill.name}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
       </div>
     </section>

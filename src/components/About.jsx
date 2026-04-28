@@ -16,28 +16,24 @@ export default function About() {
           viewport={{ once: true }}
         >
 
-          {/* badge */}
           <div className="inline-flex items-center gap-2 bg-[#561C24]/10 px-4 py-2 rounded-full text-sm text-[#561C24] mb-6">
             About Me
           </div>
 
-          {/* title */}
           <h2 className="text-4xl md:text-5xl font-bold text-[#561C24] leading-tight">
             System Analyst & <br />
             Data Enthusiast
           </h2>
 
-          {/* text */}
+          {/* SIMPLE VERSION */}
           <p className="mt-6 text-[#6D2932]/80 leading-relaxed">
-            I'm Alifia — a fresh graduate in Informatics with a strong interest in system analysis and data engineering. I focus on translating business requirements into structured system workflows and building data-driven solutions using Python and SQL.
+            I’m Alifia, a fresh graduate in Informatics focused on system analysis and data engineering.
+            I enjoy turning complex requirements into structured systems and data-driven solutions using Python and SQL.
           </p>
 
           <p className="mt-4 text-[#6D2932]/80 leading-relaxed">
-            I have hands-on experience working on real-world projects, including developing web-based systems and building end-to-end ETL pipelines for data processing. I enjoy designing efficient systems, structuring data, and collaborating in team environments to deliver scalable solutions.
-          </p>
-
-          <p className="mt-4 text-[#6D2932]/80 leading-relaxed">
-            Currently, I am focused on growing as a professional in system analysis and data engineering, continuously improving my skills in system design, cloud computing, and modern data technologies.
+            I have experience in building web systems, ETL pipelines, and working on collaborative real-world projects.
+            Currently growing in system design, cloud computing, and modern data technologies.
           </p>
 
         </motion.div>
@@ -54,19 +50,19 @@ export default function About() {
           {[
             {
               title: "System Analysis",
-              desc: "Requirement gathering, UML, DFD, and structured system workflow design."
+              desc: "Requirement gathering, UML, and workflow design."
             },
             {
               title: "Data Engineering",
-              desc: "Building ETL pipelines, data processing, and SQL-based data management."
+              desc: "ETL pipelines, SQL, and data processing."
             },
             {
-              title: "Real-World Projects",
-              desc: "Experience in web systems and data-driven applications in team environments."
+              title: "Projects",
+              desc: "Web systems & data-driven applications."
             },
             {
               title: "Cloud & Backend",
-              desc: "Hands-on experience with GCP, backend systems, and scalable solutions."
+              desc: "GCP, backend systems, scalable solutions."
             },
           ].map((item, i) => (
             <motion.div

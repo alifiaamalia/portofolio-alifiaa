@@ -3,15 +3,15 @@ import { FiExternalLink } from "react-icons/fi";
 
 const experiences = [
   {
-    title: "Scientific Publication & Data Assistant",
-    role: "BPI - LPPM UAD ",
+    title: "Scientific Publication & System Data Assistant",
+    role: "BPI - LPPM UAD",
     period: "Feb 2025 — Mar 2026",
     link: "https://bpi.uad.ac.id/publication/",
     desc: [
-      "Managed and optimized web-based research publication systems to ensure reliable data access and performance",
-      "Structured and standardized academic datasets to improve data consistency and usability",
-      "Analyzed and supported CMS workflows, enhancing content management efficiency",
-      "Ensured data integrity, validation, and accurate information delivery across platforms",
+      "Analyzed and structured academic data within web-based publication systems to ensure efficient information flow",
+      "Designed and optimized data workflows to improve data consistency, validation, and accessibility",
+      "Evaluated and improved CMS processes to enhance content management efficiency",
+      "Ensured system reliability through data integrity control and structured information delivery",
     ],
   },
   {
@@ -20,10 +20,11 @@ const experiences = [
     period: "2023 — Present",
     link: "https://excstudio.com/",
     desc: [
-      "Gathered and analyzed business requirements to define clear system specifications",
-      "Designed system workflows, use case diagrams, and data flow diagrams (DFD)",
-      "Collaborated with developers and designers to ensure alignment between business needs and technical implementation",
-      "Worked on multiple projects in a team-based environment, simulating real-world SDLC processes",
+      "Conducted requirement gathering and translated business needs into structured system specifications",
+      "Designed system workflows using Use Case Diagrams, Data Flow Diagrams (DFD), and UML modeling",
+      "Analyzed system requirements to ensure alignment with business processes and scalability",
+      "Collaborated with developers and designers to bridge system design and technical implementation",
+      "Worked on multiple projects following real-world Software Development Life Cycle (SDLC)",
     ],
   },
   {
@@ -31,9 +32,9 @@ const experiences = [
     role: "Cloud Computing Cohort",
     period: "Sep 2024 — Jan 2025",
     desc: [
-      "Built and deployed cloud-based applications using Google Cloud Platform (GCP)",
-      "Worked with backend systems and processed real-world datasets",
-      "Collaborated in cross-functional teams to develop scalable and data-driven solutions",
+      "Designed and deployed cloud-based systems using Google Cloud Platform (GCP)",
+      "Worked with backend systems and structured real-world datasets",
+      "Collaborated in cross-functional teams to build scalable and data-driven system solutions",
     ],
   },
   {
@@ -41,9 +42,9 @@ const experiences = [
     role: "Private Tutor (IT Fundamentals)",
     period: "Nov 2023 — Oct 2024",
     desc: [
-      "Delivered structured IT learning sessions covering programming fundamentals and computational thinking",
-      "Applied analytical and problem-solving approaches to improve student understanding",
-      "Developed communication and adaptability skills in dynamic learning environments",
+      "Delivered structured learning sessions on programming fundamentals and computational thinking",
+      "Applied analytical problem-solving approaches to improve student understanding",
+      "Developed strong communication skills in explaining technical concepts effectively",
     ],
   },
 ];

@@ -5,42 +5,69 @@ const projectsData = [
   {
     title: "BOTANI Winongo Asri",
     description:
-      "Website resmi kelompok tani di Yogyakarta dengan fitur produk, eduwisata, galeri, dan blog pertanian modern.",
-    tools: ["Web Development", "UI/UX", "Content Management"],
+      "Analyzed business requirements and designed a web-based information system for agricultural products and eduwisata services. Translated user needs into structured workflows and system features.",
+    tools: [
+      "Requirement Analysis",
+      "System Workflow Design",
+      "DFD & UML",
+      "Draw.io",
+      "Figma"
+    ],
     image: "/botani.jpg",
-    category: "Web",
+    role: "System Analyst — Requirement & Workflow Design",
+    category: "System",
     link: "https://botani.web.id/",
   },
   {
     title: "Himpunan Psikologi Yogyakarta",
     description:
-      "Website organisasi profesional untuk komunikasi dan edukasi anggota.",
-    tools: ["Web Development", "Information System"],
+      "Designed and structured an organizational information system to improve internal communication and usability. Focused on system flow and information architecture.",
+    tools: [
+      "System Design",
+      "Information Architecture",
+      "Figma",
+      "Draw.io"
+    ],
     image: "himpsi.jpg",
-    category: "Web",
+    role: "System Analyst — System Design & Information Flow",
+    category: "System",
     link: "https://himpsidiy.or.id/",
   },
   {
     title: "Kongres HIMPSI XV",
     description:
-      "Website resmi event nasional psikologi di Yogyakarta dengan informasi agenda lengkap.",
-    tools: ["Web Development", "Event Platform"],
+      "Built a structured event information system by organizing complex event data into a centralized workflow with clear user interaction design.",
+    tools: [
+      "System Workflow",
+      "DFD",
+      "UML",
+      "Draw.io",
+      "Figma"
+    ],
     image: "kongres.jpg",
-    category: "Web",
+    role: "System Analyst — Workflow & System Structuring",
+    category: "System",
     link: "https://kongresxvhimpsi.web.id/",
   },
   {
-    title: "ECG Heartbeat Classification",
+    title: "ECG Data Pipeline for Arrhythmia Detection",
     description:
-      "Model machine learning untuk klasifikasi detak jantung berbasis ECG untuk deteksi dini aritmia.",
-    tools: ["Python", "Machine Learning", "LSTM", "Signal Processing"],
+      "Designed and implemented an end-to-end ECG data pipeline (~100K+ records). Performed ETL processes, feature engineering, and integrated ML models for classification.",
+    tools: [
+      "Python",
+      "SQL",
+      "ETL Pipeline",
+      "Data Modeling",
+      "Machine Learning"
+    ],
     image: "ecg.png",
-    category: "ML",
+    role: "Data Engineer — ETL & Machine Learning Pipeline",
+    category: "Data",
     link: "https://github.com/alifiaamalia/ecg-data-pipeline",
   },
 ];
 
-const filters = ["All", "ML", "Web", "Data"];
+const filters = ["All", "System", "Data"];
 
 export default function Projects() {
   const [active, setActive] = useState("All");
@@ -65,7 +92,7 @@ export default function Projects() {
             Selected Projects
           </h2>
           <p className="text-gray-600 mt-4">
-            Small things, actually finished — curated portfolio.
+            System analysis, data pipeline, and real-world solution design.
           </p>
         </motion.div>
 
@@ -114,7 +141,12 @@ export default function Projects() {
                     {p.title}
                   </h3>
 
-                  <p className="text-gray-600 mt-2">
+                  {/* 🔥 ROLE BADGE */}
+                  <span className="inline-block bg-[#561C24]/10 text-[#561C24] text-xs px-3 py-1 rounded-full mt-2">
+                    {p.role}
+                  </span>
+
+                  <p className="text-gray-600 mt-3 text-sm leading-relaxed">
                     {p.description}
                   </p>
 
@@ -122,7 +154,7 @@ export default function Projects() {
                     {p.tools.map((t, i) => (
                       <span
                         key={i}
-                        className="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full"
+                        className="text-xs bg-[#561C24]/10 text-[#561C24] px-3 py-1 rounded-full"
                       >
                         {t}
                       </span>
@@ -136,7 +168,7 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* 🔥 MODAL APPLE STYLE */}
+      {/* MODAL */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -144,20 +176,15 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
             onClick={() => setSelected(null)}
           >
-
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 40 }}
-              transition={{ type: "spring", stiffness: 120, damping: 15 }}
-              className="bg-white/80 backdrop-blur-xl rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-white/40 relative"
+              className="bg-white/90 backdrop-blur-xl rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-white/40 relative"
               onClick={(e) => e.stopPropagation()}
             >
-
-              {/* CLOSE BUTTON */}
               <button
                 onClick={() => setSelected(null)}
                 className="absolute top-4 right-4 text-gray-500 hover:text-black text-lg"
@@ -165,25 +192,24 @@ export default function Projects() {
                 ✕
               </button>
 
-              {/* IMAGE */}
-              <motion.img
+              <img
                 src={selected.image}
                 className="rounded-2xl mb-4"
-                initial={{ scale: 1.05 }}
-                animate={{ scale: 1 }}
               />
 
-              {/* TITLE */}
               <h2 className="text-2xl font-bold text-[#561C24]">
                 {selected.title}
               </h2>
 
-              {/* DESC */}
+              {/* ROLE DI MODAL */}
+              <p className="text-sm text-[#561C24] font-medium mt-1">
+                {selected.role}
+              </p>
+
               <p className="text-gray-600 mt-2 leading-relaxed">
                 {selected.description}
               </p>
 
-              {/* BUTTON */}
               <div className="mt-6">
                 {selected.link && (
                   <a
@@ -198,7 +224,6 @@ export default function Projects() {
               </div>
 
             </motion.div>
-
           </motion.div>
         )}
       </AnimatePresence>
