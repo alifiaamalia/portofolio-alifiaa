@@ -17,26 +17,26 @@ export default function About() {
         >
 
           {/* badge */}
-          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur px-4 py-2 rounded-full border border-gray-200 text-sm text-gray-600 mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-[#561C24]/10 px-4 py-2 rounded-full text-sm text-[#561C24] mb-6">
             About Me
           </div>
 
           {/* title */}
-          <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#561C24] leading-tight">
             System Analyst & <br />
             Data Enthusiast
           </h2>
 
           {/* text */}
-          <p className="mt-6 text-gray-600 leading-relaxed">
+          <p className="mt-6 text-[#6D2932]/80 leading-relaxed">
             I'm Alifia — a fresh graduate in Informatics with a strong interest in system analysis and data engineering. I focus on translating business requirements into structured system workflows and building data-driven solutions using Python and SQL.
           </p>
 
-          <p className="mt-4 text-gray-600 leading-relaxed">
+          <p className="mt-4 text-[#6D2932]/80 leading-relaxed">
             I have hands-on experience working on real-world projects, including developing web-based systems and building end-to-end ETL pipelines for data processing. I enjoy designing efficient systems, structuring data, and collaborating in team environments to deliver scalable solutions.
           </p>
 
-          <p className="mt-4 text-gray-600 leading-relaxed">
+          <p className="mt-4 text-[#6D2932]/80 leading-relaxed">
             Currently, I am focused on growing as a professional in system analysis and data engineering, continuously improving my skills in system design, cloud computing, and modern data technologies.
           </p>
 
@@ -75,17 +75,17 @@ export default function About() {
               transition={{ type: "spring", stiffness: 200 }}
               className="
                 p-6 rounded-2xl
-                bg-gray-50
+                bg-white
                 border border-gray-200
                 shadow-sm hover:shadow-md
                 transition
               "
             >
-              <h3 className="font-semibold text-black">
+              <h3 className="font-semibold text-[#561C24]">
                 {item.title}
               </h3>
 
-              <p className="text-gray-600 mt-1 text-sm">
+              <p className="text-[#6D2932]/80 mt-1 text-sm">
                 {item.desc}
               </p>
             </motion.div>

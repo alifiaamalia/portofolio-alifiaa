@@ -3,6 +3,18 @@ import { FiExternalLink } from "react-icons/fi";
 
 const experiences = [
   {
+    title: "Student Employee — LPPM UAD",
+    role: "Scientific Publication & Data Assistant",
+    period: "Feb 2025 — Mar 2026",
+    link: "https://bpi.uad.ac.id/publication/",
+    desc: [
+      "Managed and optimized web-based research publication systems to ensure reliable data access and performance",
+      "Structured and standardized academic datasets to improve data consistency and usability",
+      "Analyzed and supported CMS workflows, enhancing content management efficiency",
+      "Ensured data integrity, validation, and accurate information delivery across platforms",
+    ],
+  },
+  {
     title: "EXC Studio",
     role: "System Analyst",
     period: "2023 — Present",
@@ -12,16 +24,6 @@ const experiences = [
       "Designed system workflows, use case diagrams, and data flow diagrams (DFD)",
       "Collaborated with developers and designers to ensure alignment between business needs and technical implementation",
       "Worked on multiple projects in a team-based environment, simulating real-world SDLC processes",
-    ],
-  },
-  {
-    title: "Edufio Tutoring Institution — Yogyakarta",
-    role: "Private Tutor (IT Fundamentals)",
-    period: "Nov 2023 — Oct 2024",
-    desc: [
-      "Delivered structured IT learning sessions covering programming fundamentals and computational thinking",
-      "Applied analytical and problem-solving approaches to improve student understanding",
-      "Developed communication and adaptability skills in dynamic learning environments",
     ],
   },
   {
@@ -35,14 +37,13 @@ const experiences = [
     ],
   },
   {
-    title: "Student Employee — LPPM UAD",
-    role: "Scientific Publication Assistant",
-    period: "Feb 2025 — Mar 2026",
+    title: "Edufio Tutoring Institution — Yogyakarta",
+    role: "Private Tutor (IT Fundamentals)",
+    period: "Nov 2023 — Oct 2024",
     desc: [
-      "Managed and maintained web-based platforms for research publications",
-      "Structured and organized academic datasets to ensure consistency and accessibility",
-      "Supported content management systems (CMS) and optimized data workflows",
-      "Ensured data accuracy, integrity, and efficient information delivery",
+      "Delivered structured IT learning sessions covering programming fundamentals and computational thinking",
+      "Applied analytical and problem-solving approaches to improve student understanding",
+      "Developed communication and adaptability skills in dynamic learning environments",
     ],
   },
 ];
